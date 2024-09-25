@@ -1,0 +1,38 @@
+# Terraform and Terragrunt State Files
+*.tfstate
+*.tfstate.*
+
+# Terraform and Terragrunt Backup Files
+*.backup
+
+# Lock Files
+.terraform.lock.hcl
+
+# Terragrunt Cache
+.terragrunt-cache/
+
+# Terraform Plan Files
+*.tfplan
+
+# Terraform Variables Files (if you store sensitive information here)
+*.tfvars
+*.auto.tfvars
+
+# Override files (local development customizations)
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Crash Logs
+crash.log
+
+# .terraform directory where Terraform stores its state and data
+.terraform/
+
+# Sensitive Credentials (if used locally)
+.terraformrc
+.terraform.d/
+
+# Ignore .env or other environment configuration files (optional)
+.env
