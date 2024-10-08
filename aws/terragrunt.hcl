@@ -1,5 +1,5 @@
 terraform {
-  source = "../../tf-modules/github" # Points to the directory where your Terraform code is located
+  source = "../../tf-modules/aws" # Points to the directory where your Terraform code is located
 
   after_hook "cleanup_cache" {
     commands     = ["apply"]
@@ -23,7 +23,7 @@ remote_state {
   config = {
     encrypt                     = true
     bucket                      = "terraform-backend-files-${get_env("AWS_ACCOUNT_ID")}"
-    key                         = "github_module/state_files/${path_relative_to_include()}/terraform.tfstate"
+    key                         = "aws_module/state_files/${path_relative_to_include()}/terraform.tfstate"
     region                      = "us-east-1"
     dynamodb_table              = "tfstate-lock-v3"
     skip_metadata_api_check     = true
@@ -38,19 +38,7 @@ remote_state {
 
 inputs = {
 
-  GITHUB_TOKEN  = get_env("GITHUB_TOKEN")
-  AZDO_ORG_SERVICE_URL = get_env("AZDO_ORG_SERVICE_URL")
-  AZDO_PERSONAL_ACCESS_TOKEN = get_env("AZDO_PERSONAL_ACCESS_TOKEN")
-  
-
-  projects = {
-    "new_domino_project" = {
-      custom_repo_name        = "mlops-aws-windoutput"
-      custom_repo_description = "Project for e2e mlops using terraform, azure pipelines with wind output prediction"
-      add_ruleset = true
-    }
-
-  }
+  AWS_ACCOUNT_ID  = get_env("AWS_ACCOUNT_ID")
 
 }
 
