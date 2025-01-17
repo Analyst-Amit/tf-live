@@ -48,6 +48,16 @@ inputs = {
       custom_repo_name        = "mlops-aws-windoutput"
       custom_repo_description = "Project for e2e mlops using terraform, azure pipelines with wind output prediction"
       add_ruleset = true
+    },
+      "windoutput_microservices" = {
+      custom_repo_name        = "mlops-aws-windoutput-microservices"
+      custom_repo_description = "Project for e2e mlops using terraform, azure pipelines with wind output prediction structured as microservices"
+      add_ruleset = true
+    },
+      "mlops_windoutput" = {
+      custom_repo_name        = "mlops-windoutput-helm"
+      custom_repo_description = "End-to-end MLOps project leveraging Terraform for infrastructure as code, Azure Pipelines for CI/CD automation, and Kubernetes deployments managed with Helm charts."
+      add_ruleset = true
     }
 
   }
